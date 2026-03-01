@@ -79,18 +79,89 @@
             margin-bottom: 30px;
         }
 
+        /* HOST SECTION UPGRADE */
         .mentor-badge {
             display: flex;
             align-items: center;
-            gap: 15px;
-            background: var(--glass);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid var(--gold);
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 163, 103, 0.2);
             margin-bottom: 40px;
+            backdrop-filter: blur(10px);
         }
 
-        /* Countdown Timer Styles */
+        .host-photo-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .host-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 1.5px dashed var(--gold);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .host-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .host-details h4 {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+            color: var(--white);
+        }
+
+        .host-details p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(10, 102, 194, 0.1);
+            border: 1px solid rgba(10, 102, 194, 0.4);
+            border-radius: 6px;
+            color: #0077b5;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .linkedin-btn:hover {
+            background: #0077b5;
+            color: white;
+        }
+
+        /* Timer and Form preserved from original */
         .countdown-wrapper {
             margin-bottom: 40px;
             padding: 20px;
@@ -113,10 +184,6 @@
             gap: 20px;
         }
 
-        .timer-unit {
-            text-align: center;
-        }
-
         .timer-num {
             display: block;
             font-size: 1.8rem;
@@ -130,7 +197,6 @@
             opacity: 0.6;
         }
 
-        /* Right Side: Luma Checkout */
         .reg-form-side {
             flex: 1;
             padding: 80px 6%;
@@ -164,23 +230,6 @@
             letter-spacing: 1px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 15px 30px rgba(138, 109, 59, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .luma-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(138, 109, 59, 0.5);
-        }
-
-        .secure-note {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            color: #666;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         @media (max-width: 768px) {
@@ -201,17 +250,21 @@
                 style="color: var(--gold); text-decoration: none; margin-bottom: 40px; display: block; font-weight: 700; font-size: 0.9rem;">←
                 Back to Warin</a>
 
-            <span class="tag">Coming Soon • Premium Workshop</span>
-            <h1>App Development & <br><span style="color: var(--gold);">LLM Engineering</span></h1>
+            <span class="tag">Career Acceleration Workshop</span>
+            <h1>Upgrade your LinkedIn <br><span style="color: var(--gold);">and GitHub</span></h1>
 
-            <p style="opacity: 0.85; font-size: 1.1rem; margin-bottom: 40px;">
-                Learn how to build production-ready applications integrated with Large Language Models (LLMs).
-                From frontend architecture to prompt engineering and AI backend integration — this workshop bridges
-                real-world app development with next-generation AI systems.
+            <p style="opacity: 0.85; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.6;">
+                In today’s competitive tech ecosystem, visibility drives opportunity.
+                Your LinkedIn defines your professional positioning.
+                Your GitHub proves your technical credibility.
+
+                This workshop is a tactical blueprint to transform both into a recruiter-attracting digital asset —
+                engineered for internships, research roles, and high-impact career growth.
             </p>
 
             <div class="countdown-wrapper">
-                <div class="countdown-title">Registration Closes In</div>
+                <div class="countdown-title">Limited Registration • Free Access</div>
+
                 <div class="timer" id="countdown">
                     <div class="timer-unit"><span class="timer-num" id="days">00</span><span
                             class="timer-label">Days</span></div>
@@ -222,67 +275,118 @@
                     <div class="timer-unit"><span class="timer-num" id="secs">00</span><span
                             class="timer-label">Secs</span></div>
                 </div>
+
+                <div
+                    style="margin-top: 20px; display: flex; align-items: center; gap: 10px; background: rgba(255, 77, 77, 0.1); padding: 10px 15px; border-radius: 8px; border: 1px solid rgba(255, 77, 77, 0.3);">
+                    <span
+                        style="width: 8px; height: 8px; background: #ff4d4d; border-radius: 50%; animation: pulse 1.5s infinite;"></span>
+                    <span
+                        style="font-size: 0.75rem; font-weight: 700; color: #ff4d4d; text-transform: uppercase; letter-spacing: 1px;">
+                        limited registration
+                    </span>
+                </div>
             </div>
 
+            <style>
+                @keyframes pulse {
+                    0% {
+                        transform: scale(0.95);
+                        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 10px rgba(255, 77, 77, 0);
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+                    }
+                }
+            </style>
             <div class="mentor-badge">
-                <div style="font-size: 1.5rem;">👨‍💻</div>
-                <div>
-                    <div style="font-weight: 800; font-size: 1rem;">Led by Dileep Ruthin</div>
-                    <div style="font-size: 0.8rem; opacity: 0.7;">Founder, Warin • AIML Specialist</div>
+                <div class="host-photo-wrapper">
+                    <img src="hostphotos/muvalikahost.jpg" alt="Muvalika GR" class="host-img">
                 </div>
+                <div class="host-details">
+                    <span
+                        style="color:var(--gold); font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Workshop
+                        Host</span>
+                    <h4>Muvalika GR</h4>
+                    <p style="color: var(--white); font-weight: 600; font-size: 0.85rem; margin-bottom: 5px;">
+                        Prompt Engineer, Ransh Innovations • AWS Solutions Specialist
+                    </p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                        <span
+                            style="background: rgba(197, 163, 103, 0.2); color: var(--gold); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">JAVA
+                            FSD</span>
+                        <span
+                            style="background: rgba(197, 163, 103, 0.2); color: var(--gold); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">LLM
+                            ARCHITECT</span>
+                        <span
+                            style="background: rgba(197, 163, 103, 0.2); color: var(--gold); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">ANDROID</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/muvalika-gr-/" target="_blank" class="linkedin-btn">
+                        LinkedIn Profile ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="mentor-bio-box"
+                style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.05);">
+                <h5 style="color: var(--gold); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">About
+                    the Mentor</h5>
+                <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">
+                    Muvalika GR is a high-performance,Prompt Engineer at Ransh Innovations, and a Computer Science
+                    lead at **Mohan Babu University.
+                    She specializes in bridging mobile architecture with **AWS Cloud scalability, ensuring
+                    applications are ready for the future of **LLM integration**.
+                    Join her to learn the exact portfolio strategies used by National Hackathon leaders.
+                </p>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem;">
                 <div><strong
-                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Date</strong><br>March
-                    15, 2026</div>
+                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Session
+                        Date</strong><br>March 7, 2026</div>
                 <div><strong
-                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Venue</strong><br>Mohan
-                    Babu University</div>
+                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Platform</strong><br>Google
+                    Meet (via Luma)</div>
             </div>
         </div>
 
         <div class="reg-form-side">
             <div class="reg-card">
-                <div style="font-size: 3rem; margin-bottom: 20px;">🎟️</div>
-                <h2>Join the Early Access List</h2>
-                <p style="color: #666; margin-bottom: 40px; line-height: 1.6;">
-                    This workshop is launching soon. Register now to receive priority access,
-                    curriculum preview, and early-bird benefits.
-                </p>
+                <div style="font-size: 3rem; margin-bottom: 20px;">🚀</div>
                 <h2 style="margin-bottom: 15px; font-family: 'Playfair Display', serif; font-size: 2rem;">Secure Your
                     Seat</h2>
-                <p style="color: #666; margin-bottom: 40px; line-height: 1.6;">Click below to reserve your spot and
-                    complete your registration via our secure <strong>Luma</strong> partner portal.</p>
+                <p style="color: #666; margin-bottom: 40px; line-height: 1.6;">
+                    Gain the competitive edge. Complete your registration through our secure Luma portal to receive your
+                    entry link.
+                </p>
 
-                <a href="https://luma.com/lviirgsk" class="luma-btn" target="_blank">Register on Luma →</a>
+                <a href="https://lu.ma/lviirgsk" class="luma-btn" target="_blank">Register on Luma →</a>
 
-                <div class="secure-note">
-                    <span>🔒</span>
-                    <span>Verified Checkout & Instant Access</span>
+                <div style="margin-top: 25px; font-size: 0.85rem; color: #666;">🔒 Verified Checkout & Instant Access
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // COUNTDOWN TIMER LOGIC
         const targetDate = new Date("March 15, 2026 09:00:00").getTime();
-
         const timer = setInterval(function () {
             const now = new Date().getTime();
             const distance = targetDate - now;
-
             const d = Math.floor(distance / (1000 * 60 * 60 * 24));
             const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((distance % (1000 * 60)) / 1000);
-
             document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
             document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
             document.getElementById("mins").innerHTML = m.toString().padStart(2, '0');
             document.getElementById("secs").innerHTML = s.toString().padStart(2, '0');
-
             if (distance < 0) {
                 clearInterval(timer);
                 document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
