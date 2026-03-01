@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Global Partners | Warin</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #fdfbf7;
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --border: rgba(138, 109, 59, 0.15);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('image_07703b.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #1a1a1a;
+        }
+
+        header {
+            padding: 60px 8% 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--gold-dark);
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* INDUSTRY LEVEL GRID */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 8% 120px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .partner-portal {
+            text-decoration: none;
+            display: block;
+        }
+
+        .partner-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        .partner-card img {
+            max-width: 180px;
+            max-height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+
+        /* Hover Reveal Effects */
+        .partner-card::before {
+            content: "View Profile →";
+            position: absolute;
+            bottom: 20px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: 0.4s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            background: #fff;
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(138, 109, 59, 0.15);
+        }
+
+        .partner-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .partner-card:hover::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .company-name {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--gold-dark);
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .partner-card:hover .company-name {
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: var(--gold-dark);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <span class="subtitle">Global Network</span>
+        <h1>Institutional Partners</h1>
+    </header>
+
+    <div class="partners-grid">
+        <a href="company-profile-ibm.html" class="partner-portal">
+            <div class="partner-card">
+                <img src="ibm_logo.png" alt="IBM">
+                <span class="company-name">IBM Z Systems</span>
+            </div>
+        </a>
+
+        <a href="company-profile-uidai.html" class="partner-portal">
+            <div class="partner-card">
+                <img src="uidai_logo.png" alt="UIDAI">
+                <span class="company-name">UIDAI</span>
+            </div>
+        </a>
+
+        <a href="company-profile-iste.html" class="partner-portal">
+            <div class="partner-card">
+                <img src="iste_logo.png" alt="ISTE">
+                <span class="company-name">ISTE Student Chapter</span>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        © 2026 Warin Foundation. Building the industry pipeline.
+    </footer>
+
+</body>
+
+</html>

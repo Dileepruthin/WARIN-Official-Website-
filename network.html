@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Ecosystem | Warin Foundation</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        :root {
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --glass: rgba(255, 255, 255, 0.88);
+            --border: rgba(138, 109, 59, 0.15);
+            --blue-accent: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* VIDEO BACKGROUND */
+        .video-container {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            transition: filter 0.8s ease;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.97));
+            z-index: -1;
+        }
+
+        /* MAIN WRAPPER */
+        #mainContent {
+            transition: opacity 0.6s ease, filter 0.6s ease;
+        }
+
+        .content-blur {
+            filter: blur(10px);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 120px 8% 80px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .tag {
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--gold-dark);
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 8% 120px;
+        }
+
+        .section {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 60px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all .8s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold-dark);
+            margin-bottom: 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-item::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .cta-wrapper {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 55px;
+            background: var(--gold-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            transition: 0.4s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 10px 30px rgba(138, 109, 59, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: var(--gold);
+        }
+
+        /* CONTACT MODAL */
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .contact-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .contact-panel {
+            width: 95%;
+            max-width: 1100px;
+            background: white;
+            padding: 60px;
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            transform: scale(0.9) translateY(30px);
+            transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .contact-modal.active .contact-panel {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #999;
+        }
+
+        .contact-input,
+        .contact-select,
+        .contact-textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1.5px solid #eef2f6;
+            border-radius: 12px;
+            background: #f8fafc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .contact-input:focus {
+            border-color: var(--blue-accent);
+            background: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--blue-accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        @media(max-width: 900px) {
+            .contact-panel {
+                grid-template-columns: 1fr;
+                padding: 40px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-container" id="vidCont">
+        <video autoplay muted loop playsinline>
+            <source src="corporate-background.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div id="mainContent">
+        <header>
+            <span class="tag">The Warin Impact Model</span>
+            <h1>Bridging Global Industry <br> with Rural Untapped Potential.</h1>
+            <p style="max-width:850px; margin:auto; color:#444; font-size: 1.1rem;">
+                Warin functions as a **Specialized Impact Engine**. We don't just provide curriculum; we build localized
+                technology ecosystems led by practitioner-founders. We architect the bridge from government schools to
+                global industry pipelines.
+            </p>
+        </header>
+
+        <div class="container">
+            <div class="section">
+                <h2>Corporate Synergy & CSR Compliance</h2>
+                <p>We provide a radical, audit-ready framework for CSR capital. Warin translates corporate mandates into
+                    quantifiable rural transformation, focusing on **front-end digital equity** and **enterprise-level
+                    technical literacy**.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">Measurable Impact Reports</div>
+                    <div class="feature-item">Industrial-Grade Pedagogy</div>
+                    <div class="feature-item">ESG Narrative Alignment</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>The Practitioner Pipeline</h2>
+                <p>Warin connects rural students directly with working professionals, AI architects, and startup
+                    founders. Through **1:1 mentorship** and **Architecture Reviews**, we ensure students learn from
+                    those defining the industry frontier.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">Live System Audits</div>
+                    <div class="feature-item">Datathon Winning Mentors</div>
+                    <div class="feature-item">Career Pathway Logic</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Agentic AI & Future Literacy</h2>
+                <p>We go beyond basic coding. Warin installs advanced curriculum in **Agentic AI** and **Autonomous
+                    Automation Systems** to solve localized rural problems, creating a workforce ready for the 2026 tech
+                    landscape.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">Autonomous Workflow Training</div>
+                    <div class="feature-item">Low-Resource Optimization</div>
+                    <div class="feature-item">Rapid Prototyping Sprints</div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Practitioner-to-Student Mentorship</h2>
+                <p>
+                    We bridge the knowledge gap through a direct pipeline. Working AI architects and startup
+                    founders—including winners of the **IBM Z Datathon**—mentor students through 1:1 sessions and live
+                    system architecture reviews.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-item">Architecture Blueprints</div>
+                    <div class="feature-item">Live System Audits</div>
+                    <div class="feature-item">Founder-Led Sprints</div>
+                    <div class="feature-item">Career Logic Training</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>The Elite Talent Pipeline</h2>
+                <p>
+                    Secure an early-hire advantage. Our talent pool is not just "digitally literate"—they are pre-vetted
+                    specialists trained in **Low-Resource System Deployment** and **Autonomous Agent Workflows**.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-item">Pre-Vetted Founders</div>
+                    <div class="feature-item">AI Specialization</div>
+                    <div class="feature-item">Diverse Hiring Edge</div>
+                    <div class="feature-item">Brand-Industry Synergy</div>
+                </div>
+            </div>
+            <div class="cta-wrapper">
+                <button class="cta-btn" onclick="toggleContact()">Initialize Strategic Partnership →</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="contact-modal">
+        <div class="contact-panel">
+            <div class="close-btn" onclick="toggleContact()">✕</div>
+
+            <div class="contact-info-side">
+                <span
+                    style="color:var(--blue-accent); font-weight:800; text-transform:uppercase; font-size:0.75rem; letter-spacing:2px;">Elite
+                    Network</span>
+                <h2 style="font-family:'Playfair Display', serif; font-size:2.8rem; margin:20px 0; line-height:1.2;">
+                    Architect <br>the <span style="color:var(--blue-accent);">Future.</span></h2>
+                <p style="color:#64748b; font-size:1rem;">Founder Dileep Ruthin and the Warin board will personally
+                    initialize synchronization with your domain.</p>
+                <div
+                    style="margin-top:40px; font-size:0.85rem; border-left: 2px solid var(--gold); padding-left: 20px;">
+                    <p><strong>Official Liaison:</strong> founderwarin@gmail.com</p>
+                    <p><strong>HQ:</strong> Tirupati, Andhra Pradesh</p>
+                </div>
+            </div>
+
+            <div class="contact-form-side">
+                <form id="warinContactForm">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" name="first_name" placeholder="First Name" required class="contact-input">
+                        <input type="text" name="last_name" placeholder="Last Name" required class="contact-input">
+                    </div>
+                    <input type="email" name="email" placeholder="Professional Email" required class="contact-input">
+
+                    <select name="role" required class="contact-select">
+                        <option value="" disabled selected>Select Your Domain</option>
+                        <option>CSR & ESG Strategy</option>
+                        <option>Enterprise AI Partnerships</option>
+                        <option>Governmental Affairs</option>
+                        <option>Higher Education Institutional Lead</option>
+                        <option>Industry Practitioner / Mentor</option>
+                        <option>Startup Ecosystem & Incubator</option>
+                        <option>Global Philanthropy & Granting</option>
+                        <option>Tech Recruitment & Talent Pipe</option>
+                        <option>Rural Digital Transformation Board</option>
+                        <option>Student Leader / Campus Ambassador</option>
+                    </select>
+
+                    <textarea name="message" rows="4" placeholder="How can we architect impact in your domain?" required
+                        class="contact-textarea"></textarea>
+                    <button type="submit" id="submitBtn" class="submit-btn">Initialize Synchronization →</button>
+                </form>
+
+                <div id="successBox" style="display: none; text-align: center; padding: 20px;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">✅</div>
+                    <h3 style="color: #0f172a; font-family: 'Playfair Display', serif; font-size: 1.8rem;">Sync In
+                        Progress.</h3>
+                    <p style="color: #64748b;">Team WARIN will review your synchronization request and respond within
+                        24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="text-align:center; padding:60px; color:var(--gold-dark); font-size:0.85rem;">© 2026 Warin Foundation |
+            Tech for Good. Change for Real.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.2 });
+        sections.forEach(s => observer.observe(s));
+
+        function toggleContact() {
+            const modal = document.getElementById('contactModal');
+            const main = document.getElementById('mainContent');
+            const video = document.getElementById('vidCont');
+            modal.classList.toggle('active');
+            main.classList.toggle('content-blur');
+            if (modal.classList.contains('active')) {
+                video.style.filter = "blur(15px) brightness(0.6)";
+                document.body.style.overflow = "hidden";
+            } else {
+                video.style.filter = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwtDdjzKDkYxHGpO-yn32GaX5NxaRFP9X-noh6E0ds577kyg-P7qw69hL8_sYlkz-b5zw/exec';
+        const form = document.getElementById('warinContactForm');
+        const btn = document.getElementById('submitBtn');
+        const successBox = document.getElementById('successBox');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = "Authenticating Connection...";
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    form.style.display = 'none';
+                    successBox.style.display = 'block';
+                })
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.innerHTML = "Initialize Synchronization →";
+                    alert('Communication Error. Check system link.');
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration | Warin Foundation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --navy: #0f172a;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #fdfbf7;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .reg-container {
+            display: flex;
+            min-height: 100vh;
+            flex-wrap: wrap;
+        }
+
+        /* Left Side: Authority & Info */
+        .reg-info {
+            flex: 1;
+            background: var(--navy);
+            color: white;
+            padding: 60px 6%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reg-info::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: var(--gold);
+            filter: blur(150px);
+            opacity: 0.15;
+        }
+
+        .tag {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .mentor-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 40px;
+        }
+
+        /* Countdown Timer Styles */
+        .countdown-wrapper {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(197, 163, 103, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(197, 163, 103, 0.2);
+        }
+
+        .countdown-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .timer {
+            display: flex;
+            gap: 20px;
+        }
+
+        .timer-unit {
+            text-align: center;
+        }
+
+        .timer-num {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .timer-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* Right Side: Luma Checkout */
+        .reg-form-side {
+            flex: 1;
+            padding: 80px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 400px;
+        }
+
+        .reg-card {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .luma-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 30px rgba(138, 109, 59, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .luma-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(138, 109, 59, 0.5);
+        }
+
+        .secure-note {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+
+            .reg-info,
+            .reg-form-side {
+                padding: 60px 8%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reg-container">
+        <div class="reg-info">
+            <a href="index.html"
+                style="color: var(--gold); text-decoration: none; margin-bottom: 40px; display: block; font-weight: 700; font-size: 0.9rem;">←
+                Back to Warin</a>
+
+            <span class="tag">Coming Soon • Premium Workshop</span>
+            <h1>App Development & <br><span style="color: var(--gold);">LLM Engineering</span></h1>
+
+            <p style="opacity: 0.85; font-size: 1.1rem; margin-bottom: 40px;">
+                Learn how to build production-ready applications integrated with Large Language Models (LLMs).
+                From frontend architecture to prompt engineering and AI backend integration — this workshop bridges
+                real-world app development with next-generation AI systems.
+            </p>
+
+            <div class="countdown-wrapper">
+                <div class="countdown-title">Registration Closes In</div>
+                <div class="timer" id="countdown">
+                    <div class="timer-unit"><span class="timer-num" id="days">00</span><span
+                            class="timer-label">Days</span></div>
+                    <div class="timer-unit"><span class="timer-num" id="hours">00</span><span
+                            class="timer-label">Hrs</span></div>
+                    <div class="timer-unit"><span class="timer-num" id="mins">00</span><span
+                            class="timer-label">Mins</span></div>
+                    <div class="timer-unit"><span class="timer-num" id="secs">00</span><span
+                            class="timer-label">Secs</span></div>
+                </div>
+            </div>
+
+            <div class="mentor-badge">
+                <div style="font-size: 1.5rem;">👨‍💻</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1rem;">Led by Dileep Ruthin</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Founder, Warin • AIML Specialist</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem;">
+                <div><strong
+                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Date</strong><br>March
+                    15, 2026</div>
+                <div><strong
+                        style="color:var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Venue</strong><br>Mohan
+                    Babu University</div>
+            </div>
+        </div>
+
+        <div class="reg-form-side">
+            <div class="reg-card">
+                <div style="font-size: 3rem; margin-bottom: 20px;">🎟️</div>
+                <h2>Join the Early Access List</h2>
+                <p style="color: #666; margin-bottom: 40px; line-height: 1.6;">
+                    This workshop is launching soon. Register now to receive priority access,
+                    curriculum preview, and early-bird benefits.
+                </p>
+                <h2 style="margin-bottom: 15px; font-family: 'Playfair Display', serif; font-size: 2rem;">Secure Your
+                    Seat</h2>
+                <p style="color: #666; margin-bottom: 40px; line-height: 1.6;">Click below to reserve your spot and
+                    complete your registration via our secure <strong>Luma</strong> partner portal.</p>
+
+                <a href="https://luma.com/lviirgsk" class="luma-btn" target="_blank">Register on Luma →</a>
+
+                <div class="secure-note">
+                    <span>🔒</span>
+                    <span>Verified Checkout & Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // COUNTDOWN TIMER LOGIC
+        const targetDate = new Date("March 15, 2026 09:00:00").getTime();
+
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
+            document.getElementById("mins").innerHTML = m.toString().padStart(2, '0');
+            document.getElementById("secs").innerHTML = s.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

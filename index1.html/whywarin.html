@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Warin Edge | Why We Stand Out</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --cream: #fdfbf7;
+            --deep: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--cream);
+            color: var(--deep);
+            overflow-x: hidden;
+        }
+
+        /* 3D Background Canvas */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* Scroll Progress Bar */
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gold);
+            transform-origin: 0%;
+            z-index: 2000;
+        }
+
+        /* Sections */
+        .reveal-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            color: var(--gold-dark);
+        }
+
+        .standout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 100px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 40px;
+            border: 1px solid rgba(138, 109, 59, 0.2);
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold-dark);
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .number-overlay {
+            font-size: 8rem;
+            font-weight: 900;
+            position: absolute;
+            top: -50px;
+            right: 20px;
+            color: var(--gold);
+            opacity: 0.05;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="progress"></div>
+    <div id="canvas-container"></div>
+
+    <!-- Hero Section -->
+    <section class="reveal-section">
+        <span class="tagline">The Warin Framework</span>
+        <h1>Why Warin <br> Stands Apart.</h1>
+
+        <p style="max-width: 650px; margin-top: 30px; font-size: 1.2rem; line-height:1.8;">
+            Warin is a rural-first technology foundation committed to building structured, long-term innovation
+            ecosystems.
+            We move beyond isolated workshops and focus on sustainable systems that develop real technical capability,
+            leadership maturity, and problem-solving capacity within underserved communities.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="reveal-section">
+        <div class="standout-grid">
+
+            <div class="feature-card">
+                <span class="number-overlay">01</span>
+                <h2>Rural-First <br> Framework</h2>
+                <p>
+                    Warin is designed specifically for rural and underserved ecosystems.
+                    Our programs are built from ground realities — infrastructure gaps, access barriers,
+                    and institutional constraints — ensuring contextual relevance and sustainable execution.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="number-overlay">02</span>
+                <h2>Applied AI & <br> Systems Thinking</h2>
+                <p>
+                    We emphasize applied learning in artificial intelligence, automation, and digital systems.
+                    Students are trained to design and implement practical solutions that address real-world challenges,
+                    bridging the gap between academic theory and execution-level capability.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="number-overlay">03</span>
+                <h2>Practitioner-Led <br> Mentorship</h2>
+                <p>
+                    Warin operates through guidance from active builders, innovators, and researchers.
+                    Students gain exposure to current industry practices, execution discipline,
+                    and innovation thinking — not just theoretical instruction.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // THREE.JS Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0xc5a367, wireframe: true });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.005;
+            torusKnot.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Scroll Progress
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress").style.width = scrolled + "%";
+            torusKnot.position.y = winScroll * 0.01;
+        };
+    </script>
+
+</body>
+
+</html>
