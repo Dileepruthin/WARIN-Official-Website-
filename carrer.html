@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warin | Join the Core Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --navy-dark: #070b14;
+            --navy-light: #111a2e;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            /* Rich Cinematic Gradient Background */
+            background: radial-gradient(circle at 50% 50%, var(--navy-light) 0%, var(--navy-dark) 100%);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Ambient Cinematic Lighting (Floating Orbs) */
+        .ambient-light {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .light-gold {
+            background: rgba(197, 163, 103, 0.15);
+            width: 50vw;
+            height: 50vw;
+            top: -10%;
+            left: -10%;
+        }
+
+        .light-blue {
+            background: rgba(37, 99, 235, 0.1);
+            width: 60vw;
+            height: 60vw;
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        /* Elegant Frosted Glass Form */
+        .form-container {
+            background: rgba(15, 20, 30, 0.5);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+            width: 100%;
+            max-width: 650px;
+            border: 1px solid rgba(197, 163, 103, 0.25);
+            position: relative;
+            z-index: 10;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        p.subtitle {
+            color: #a0aabf;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], select, textarea {
+            width: 100%;
+            padding: 15px 18px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background-color: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(197, 163, 103, 0.15);
+            transform: translateY(-2px);
+        }
+
+        select option {
+            background-color: var(--navy-dark);
+            color: white;
+        }
+
+        /* File Upload Styling */
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(197, 163, 103, 0.03);
+            border: 1px dashed rgba(197, 163, 103, 0.5);
+            border-radius: 10px;
+            color: #a0aabf;
+            font-size: 14px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        
+        input[type="file"]::file-selector-button {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            margin-right: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            box-shadow: 0 4px 12px rgba(197, 163, 103, 0.3);
+        }
+
+        .info-text {
+            font-size: 11px;
+            color: #778b99;
+            margin-top: 6px;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000000;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(197, 163, 103, 0.35);
+        }
+
+        button:disabled {
+            background: rgba(255,255,255,0.1);
+            color: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient Lighting -->
+<div class="ambient-light light-gold"></div>
+<div class="ambient-light light-blue"></div>
+
+<div class="form-container">
+    <h2>Join Warin</h2>
+    <p class="subtitle">Driven by Purpose. Built for Impact. Designed for Growth.</p>
+    
+    <form id="warinForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required placeholder="Dileep Ruthin">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required placeholder="dileep@example.com">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input type="tel" id="whatsapp" required placeholder="+91 00000 00000">
+            </div>
+            <div class="form-group">
+                <label>LinkedIn URL</label>
+                <input type="url" id="linkedin" required placeholder="https://linkedin.com/in/yourprofile">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Superpower (Role)</label>
+                <select id="role" required>
+                    <option value="" disabled selected>Choose your role...</option>
+                    <option value="Operations & Events">Operations & Events 🛠️</option>
+                    <option value="PR & Outreach">PR & Outreach 🤝</option>
+                    <option value="Digital Content & Brand">Digital Content & Brand 🎨</option>
+                    <option value="Community Manager">Community Manager 🌍</option>
+                    <option value="Tech & AI Integrator">Tech & AI Integrator 💻</option>
+                    <option value="Generalist">I'm a generalist—put me anywhere!</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Drive Link / Portfolio</label>
+                <input type="url" id="driveLink" placeholder="Paste a viewable link to your work">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Resume (PDF Only)</label>
+                <input type="file" id="resume" accept="application/pdf" required>
+            </div>
+            <div class="form-group">
+                <label>Professional Photo</label>
+                <input type="file" id="photo" accept="image/*" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Why Warin? (Be real.)</label>
+            <textarea id="reason" rows="3" required placeholder="I want to build real tech for grassroots impact..."></textarea>
+        </div>
+        
+        <button type="submit" id="submitBtn">Launch Application 🚀</button>
+        <div class="status" id="statusMessage"></div>
+    </form>
+</div>
+
+<script>
+    // ⚠️ PASTE YOUR WORKING URL HERE! ⚠️
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzzIiA51chtaJnokqW6tdCTuwIpJ-8CvYhbeWhMXIumumfZOgGcCuJEwKGeU8oy9Rsb8Q/exec';
+    
+    const form = document.getElementById('warinForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    const getBase64 = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.innerHTML = 'Uploading & Submitting... ⏳';
+        submitBtn.disabled = true;
+        statusMessage.innerHTML = '';
+
+        try {
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                linkedin: document.getElementById('linkedin').value,
+                role: document.getElementById('role').value,
+                driveLink: document.getElementById('driveLink').value,
+                reason: document.getElementById('reason').value
+            };
+
+            const resumeFile = document.getElementById('resume').files[0];
+            if (resumeFile) {
+                payload.resumeData = await getBase64(resumeFile);
+                payload.resumeMime = resumeFile.type;
+            }
+
+            const photoFile = document.getElementById('photo').files[0];
+            if (photoFile) {
+                payload.photoData = await getBase64(photoFile);
+                payload.photoMime = photoFile.type;
+            }
+
+            const response = await fetch(scriptURL, { 
+                method: 'POST', 
+                body: JSON.stringify(payload) 
+            });
+
+            const result = await response.json();
+            
+            if (result.result === "success") {
+                statusMessage.innerHTML = '✅ Application Received! Check your email inbox.';
+                statusMessage.style.color = '#c5a367';
+                form.reset();
+            } else {
+                throw new Error(result.error);
+            }
+        } catch (error) {
+            statusMessage.innerHTML = '❌ System Error: ' + error.message;
+            statusMessage.style.color = '#ff4d4d';
+            console.error(error);
+        } finally {
+            submitBtn.innerHTML = 'Launch Application 🚀';
+            submitBtn.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>
