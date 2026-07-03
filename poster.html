@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warin Masterclass | Series 01</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a367;
+            --gold-dark: #8a6d3b;
+            --navy: #050811;
+            --white: #ffffff;
+            --accent: #ff4d4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .poster-container {
+            width: 100%;
+            max-width: 800px;
+            /* Added a subtle "brushed obsidian" texture effect */
+            background: linear-gradient(135deg, #0a0e1a 0%, #050811 100%);
+            color: white;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            /* Enhanced border with a glow for a world-class finish */
+            border: 1px solid rgba(197, 163, 103, 0.4);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 0 60px rgba(197, 163, 103, 0.05);
+        }
+
+        /* Enhanced Hero Glow to make it feel like real lighting */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: -15%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(197, 163, 103, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* 1. Header - Centered for World-Class Branding */
+        .header-bar {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: center;
+            /* This moves the logo to the middle */
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .series-tag {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            opacity: 0.6;
+        }
+
+        /* 2. Main Content */
+        .content-core {
+            padding: 40px 60px;
+            text-align: center;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(255, 77, 77, 0.1);
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 8px 24px;
+            border-radius: 100px;
+            border: 1px solid var(--accent);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            line-height: 1;
+            margin-bottom: 15px;
+            /* MODIFIED FOR GIVEAWAY HOOK */
+            font-style: italic;
+        }
+
+        /* NEW GIVEAWAY HOOK VISUAL */
+        .giveaway-hook {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .mission-statement {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* 3. Mentor Block */
+        .mentor-profile {
+            display: inline-flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 24px 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .host-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+
+        .mentor-meta h4 {
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .mentor-meta p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-pill-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            background: rgba(197, 163, 103, 0.1);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            border: 1px solid var(--gold);
+        }
+
+        /* 4. Footer */
+        .poster-footer {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 24px 60px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 15px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        .manifesto-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .leadership-grid {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+        }
+
+        .leader-card {
+            text-align: left;
+        }
+
+        .leader-name {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+
+        .leader-role {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            font-weight: 700;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-bar,
+            .content-core,
+            .poster-footer {
+                padding: 30px;
+            }
+
+            .leadership-grid {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .mentor-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="poster-container">
+        <div class="header-bar">
+            <div class="brand-logo">WARIN<span style="color:var(--gold);"></span></div>
+            <div class="series-tag"></div>
+        </div>
+
+        <div class="content-core">
+            <div class="urgency-badge">Global Access • 100% Free</div>
+            <h1>Digital Portfolio<br><span style="color:var(--gold);">Engineering.</span></h1>
+
+            <span class="giveaway-hook">A SECRET REVEALED • PREMIUM GIVEAWAY INSIDE</span>
+
+            <p class="mission-statement">Architecting the next generation of global tech leaders through tactical
+                LinkedIn and GitHub optimization.</p>
+
+            <div class="mentor-profile">
+                <img src="hostphotos/muvalikahost.jpg" alt="Muvalika GR" class="host-avatar">
+                <div class="mentor-meta">
+                    <h4>Led by Muvalika GR</h4>
+                    <p>Agentic AI Architect | Java FSD + AI | Proficient in Java, Kotlin & LLM | Android developer</p>
+                    <div class="skill-pill-container">
+                        <span class="skill-pill">JAVA FSD</span>
+                        <span class="skill-pill">LLM ARCHITECT</span>
+                        <span class="skill-pill">ANDROID</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="poster-footer">
+            <a href="register.html" class="cta-btn">SECURE YOUR ENTRY →</a>
+
+            <div class="manifesto-section" style="text-align: center; margin-top: 20px;">
+                <p
+                    style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: bold; background: linear-gradient(to bottom, #fdfdfd, #c5a367); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 0.5px; line-height: 1.4; max-width: 700px; margin: 0 auto;">
+                    "At Warin, we don’t just host workshops; we engineer global legacies. This is the moment your career
+                    breaks the industrial ceiling."
+                </p>
+            </div>
+
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <span class="leader-name">Dileep Ruthin</span>
+                    <span class="leader-role">Founder • IBM Global Champion • Visionary Tech Leader</span>
+                </div>
+                <div class="leader-card">
+                    <span class="leader-name">Easwar</span>
+                    <span class="leader-role">Co-Founder • Chief of Strategy • Innovation Lead</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

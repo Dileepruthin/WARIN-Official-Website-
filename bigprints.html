@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PRINTX — Premium Printing Platform</title>
+
+  <!-- Tailwind -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050816;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: rgba(14, 165, 233, 0.18);
+      border-radius: 100%;
+      filter: blur(130px);
+      top: -200px;
+      right: -200px;
+    }
+
+    .service-card {
+      transition: 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: #22d3ee;
+    }
+
+    .upload-zone.drag {
+      border-color: #22d3ee;
+      background: rgba(34, 211, 238, 0.08);
+    }
+  </style>
+
+</head>
+
+<body class="text-white">
+
+  <!-- NAVBAR -->
+
+  <nav class="fixed top-0 w-full z-50 glass">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+
+        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl">
+          🖨
+        </div>
+
+        <div>
+          <h1 class="text-2xl font-black">
+            PRINTX
+          </h1>
+
+          <p class="text-xs text-slate-400">
+            Premium Printing Platform
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hidden md:flex items-center gap-10">
+
+        <a href="#about" class="hover:text-cyan-400 transition">
+          About
+        </a>
+
+        <a href="#services" class="hover:text-cyan-400 transition">
+          Services
+        </a>
+
+        <a href="#upload" class="hover:text-cyan-400 transition">
+          Upload
+        </a>
+
+        <a href="#contact" class="hover:text-cyan-400 transition">
+          Contact
+        </a>
+
+        <button class="bg-cyan-400 hover:bg-cyan-300 transition text-black px-6 py-3 rounded-2xl font-bold">
+          Get Started
+        </button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="relative min-h-screen flex items-center pt-32 overflow-hidden">
+
+    <div class="glow"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
+
+      <!-- LEFT -->
+
+      <div>
+
+        <div class="inline-flex items-center gap-3 glass px-5 py-3 rounded-full mb-10">
+
+          <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+
+          <span class="text-sm text-slate-300">
+            AI Powered Industrial Printing
+          </span>
+
+        </div>
+
+        <h1 class="text-6xl md:text-7xl font-black leading-tight">
+
+          Modern
+
+          <span class="block text-cyan-400">
+            Digital Printing
+          </span>
+
+          Experience
+
+        </h1>
+
+        <p class="mt-8 text-slate-400 text-lg leading-relaxed max-w-xl">
+
+          Premium business printing, publishing, branding,
+          apparel, and industrial-scale production with
+          AI-powered workflow systems.
+
+        </p>
+
+        <div class="flex gap-5 mt-10 flex-wrap">
+
+          <button class="bg-cyan-400 hover:bg-cyan-300 transition text-black px-8 py-4 rounded-2xl font-bold">
+            Start Printing
+          </button>
+
+          <button class="glass px-8 py-4 rounded-2xl hover:border-cyan-400 transition">
+            Explore Services
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="glass rounded-[40px] p-8">
+
+        <div class="grid grid-cols-2 gap-5">
+
+          <div class="bg-cyan-500/10 border border-cyan-400/20 rounded-3xl p-6">
+
+            <div class="text-5xl">
+              🎨
+            </div>
+
+            <h3 class="text-2xl font-bold mt-5">
+              Premium Finish
+            </h3>
+
+            <p class="text-slate-400 mt-3">
+              Matte, glossy, metallic & luxury textures.
+            </p>
+
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+
+            <div class="text-5xl">
+              ⚡
+            </div>
+
+            <h3 class="text-2xl font-bold mt-5">
+              AI Pricing
+            </h3>
+
+            <p class="text-slate-400 mt-3">
+              Real-time smart quotation engine.
+            </p>
+
+          </div>
+
+          <div
+            class="col-span-2 bg-gradient-to-r from-cyan-500/10 to-transparent border border-cyan-400/20 rounded-3xl p-8">
+
+            <h3 class="text-3xl font-black">
+              Enterprise Production
+            </h3>
+
+            <p class="text-slate-300 mt-5 leading-relaxed">
+              Automated printing infrastructure built for
+              startups, businesses, publishing houses,
+              and creators.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="max-w-7xl mx-auto px-6 py-28">
+
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <div>
+
+        <p class="uppercase tracking-[5px] text-cyan-400 text-sm">
+          About Us
+        </p>
+
+        <h2 class="text-5xl font-black mt-6 leading-tight">
+          Premium Printing Infrastructure
+          For Modern Brands
+        </h2>
+
+        <p class="text-slate-400 mt-8 leading-relaxed text-lg">
+
+          PRINTX is a next-generation digital printing platform
+          designed for businesses, startups, publishing industries,
+          and creators who expect world-class print quality.
+
+          We combine industrial-scale printing systems with
+          AI-powered automation and premium user experience.
+
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[40px] p-10">
+
+        <div class="grid grid-cols-2 gap-5">
+
+          <div class="bg-cyan-500/10 rounded-3xl p-6">
+
+            <h3 class="text-4xl font-black">
+              12K+
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Orders Delivered
+            </p>
+
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+
+            <h3 class="text-4xl font-black">
+              98%
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Satisfaction
+            </p>
+
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+
+            <h3 class="text-4xl font-black">
+              24/7
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Production Workflow
+            </p>
+
+          </div>
+
+          <div class="bg-cyan-500/10 rounded-3xl p-6">
+
+            <h3 class="text-4xl font-black">
+              AI
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Smart Automation
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services" class="max-w-7xl mx-auto px-6 py-28">
+
+    <div class="mb-16">
+
+      <p class="uppercase tracking-[5px] text-cyan-400 text-sm">
+        Services
+      </p>
+
+      <h2 class="text-5xl font-black mt-6">
+        Industrial Printing Services
+      </h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="service-card glass rounded-[35px] p-8">
+
+        <div class="text-5xl">
+          💼
+        </div>
+
+        <h3 class="text-3xl font-bold mt-6">
+          Corporate Printing
+        </h3>
+
+        <p class="text-slate-400 mt-4">
+          Business cards, identity cards, stationery,
+          folders, premium branding kits.
+        </p>
+
+      </div>
+
+      <div class="service-card glass rounded-[35px] p-8">
+
+        <div class="text-5xl">
+          📢
+        </div>
+
+        <h3 class="text-3xl font-bold mt-6">
+          Marketing Materials
+        </h3>
+
+        <p class="text-slate-400 mt-4">
+          Flyers, posters, banners, flex, catalogues,
+          and campaign materials.
+        </p>
+
+      </div>
+
+      <div class="service-card glass rounded-[35px] p-8">
+
+        <div class="text-5xl">
+          👕
+        </div>
+
+        <h3 class="text-3xl font-bold mt-6">
+          Apparel Printing
+        </h3>
+
+        <p class="text-slate-400 mt-4">
+          Premium t-shirts, custom merchandise,
+          and textile printing solutions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- UPLOAD SECTION -->
+
+  <section id="upload" class="max-w-7xl mx-auto px-6 py-28">
+
+    <div class="glass rounded-[40px] p-10">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- LEFT -->
+
+        <div>
+
+          <p class="uppercase tracking-[5px] text-cyan-400 text-sm">
+            Upload Artwork
+          </p>
+
+          <h2 class="text-5xl font-black mt-6">
+            Preview Your Design
+          </h2>
+
+          <p class="text-slate-400 mt-6 leading-relaxed text-lg">
+
+            Upload your print-ready files and instantly
+            preview the artwork before production.
+
+          </p>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div>
+
+          <div id="uploadZone"
+            class="upload-zone border-2 border-dashed border-cyan-400/30 rounded-[35px] p-16 text-center transition cursor-pointer">
+
+            <div class="text-6xl">
+              📤
+            </div>
+
+            <h3 class="text-3xl font-bold mt-6">
+              Drag & Drop Files
+            </h3>
+
+            <p class="text-slate-400 mt-4">
+              PNG, JPG, PDF supported
+            </p>
+
+            <input id="fileInput" type="file" accept="image/*" class="mt-8">
+
+          </div>
+
+          <!-- IMAGE RESULT -->
+
+          <div id="previewContainer" class="hidden mt-10">
+
+            <h3 class="text-2xl font-bold mb-5">
+              Design Preview
+            </h3>
+
+            <img id="previewImage" class="w-full rounded-[30px] border border-cyan-400/20 object-cover max-h-[500px]" />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="max-w-7xl mx-auto px-6 py-28">
+
+    <div class="grid lg:grid-cols-2 gap-20">
+
+      <div>
+
+        <p class="uppercase tracking-[5px] text-cyan-400 text-sm">
+          Contact
+        </p>
+
+        <h2 class="text-5xl font-black mt-6">
+          Let's Build Something Premium
+        </h2>
+
+        <p class="text-slate-400 mt-8 text-lg leading-relaxed">
+
+          Have a custom printing requirement or enterprise
+          production request? Connect with our team.
+
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[40px] p-10">
+
+        <div class="space-y-6">
+
+          <input type="text" placeholder="Full Name"
+            class="w-full bg-[#0b1120] border border-white/10 rounded-2xl px-5 py-4 outline-none">
+
+          <input type="email" placeholder="Email Address"
+            class="w-full bg-[#0b1120] border border-white/10 rounded-2xl px-5 py-4 outline-none">
+
+          <textarea placeholder="Your Message" rows="5"
+            class="w-full bg-[#0b1120] border border-white/10 rounded-2xl px-5 py-4 outline-none"></textarea>
+
+          <button class="w-full bg-cyan-400 hover:bg-cyan-300 transition text-black py-5 rounded-2xl font-bold text-lg">
+
+            Send Message
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="border-t border-white/10 py-10">
+
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-5">
+
+      <div>
+
+        <h2 class="text-3xl font-black">
+          PRINTX
+        </h2>
+
+        <p class="text-slate-400 mt-3">
+          Enterprise Digital Printing Platform
+        </p>
+
+      </div>
+
+      <div class="text-slate-500 text-sm">
+        © 2026 PRINTX — Premium Printing Ecosystem
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const fileInput = document.getElementById("fileInput");
+    const previewImage = document.getElementById("previewImage");
+    const previewContainer = document.getElementById("previewContainer");
+
+    fileInput.addEventListener("change", function () {
+
+      const file = this.files[0];
+
+      if (file) {
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+          previewImage.src = e.target.result;
+
+          previewContainer.classList.remove("hidden");
+
+        }
+
+        reader.readAsDataURL(file);
+
+      }
+
+    });
+
+    // DRAG EFFECT
+
+    const uploadZone = document.getElementById("uploadZone");
+
+    uploadZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      uploadZone.classList.add("drag");
+    });
+
+    uploadZone.addEventListener("dragleave", () => {
+      uploadZone.classList.remove("drag");
+    });
+
+    uploadZone.addEventListener("drop", () => {
+      uploadZone.classList.remove("drag");
+    });
+
+  </script>
+
+</body>
+
+</html>
