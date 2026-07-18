@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Visionaries </title>
+    <title>The Visionaries | Warin Foundation</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --bg: #fdfbf7;
+            --bg: #faf7f2;
             --gold: #c5a367;
             --gold-dark: #8a6d3b;
-            --gold-soft: rgba(197, 163, 103, 0.15);
+            --gold-soft: rgba(197, 163, 103, 0.12);
             --text-main: #1a1a1a;
             --text-muted: #575757;
-            --glass: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --card-shadow: 0 25px 50px -12px rgba(138, 109, 59, 0.15);
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --card-shadow: 0 30px 60px -15px rgba(138, 109, 59, 0.1);
         }
 
         * {
@@ -31,19 +31,25 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg);
-            background-image:
-                radial-gradient(circle at 10% 20%, var(--gold-soft), transparent 40%),
-                radial-gradient(circle at 90% 80%, var(--gold-soft), transparent 40%),
-                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                url('image_07745a.jpg');
-            background-size: cover;
-            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* --- 3D INTERACTIVE CANVAS BACKGROUND --- */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: auto;
+            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #fdfbf7 60%, #f5f0e6 100%);
         }
 
         header {
@@ -51,7 +57,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
@@ -72,13 +79,16 @@
             padding: 12px 24px;
             border: 1.5px solid var(--gold);
             border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .back-home:hover {
             background: var(--gold);
             color: white;
-            box-shadow: 0 10px 20px rgba(197, 163, 103, 0.3);
+            box-shadow: 0 10px 25px rgba(197, 163, 103, 0.3);
             transform: translateY(-2px);
         }
 
@@ -87,12 +97,13 @@
             max-width: 1400px;
             margin: auto;
             flex: 1;
+            position: relative;
+            z-index: 5;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 60px;
-            animation: fadeIn 1s ease-out;
         }
 
         .section-header.interns-header {
@@ -143,10 +154,10 @@
             border-radius: 40px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--card-shadow);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             text-align: center;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .team-card::before {
@@ -162,8 +173,10 @@
         }
 
         .team-card:hover {
-            transform: translateY(-15px) scale(1.02);
+            transform: translateY(-10px);
             border-color: var(--gold);
+            box-shadow: 0 40px 80px -20px rgba(138, 109, 59, 0.2);
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .team-card:hover::before {
@@ -183,7 +196,7 @@
             inset: -12px;
             border: 1.5px dashed var(--gold);
             border-radius: 50%;
-            animation: rotateHalo 12s linear infinite;
+            animation: rotateHalo 20s linear infinite;
         }
 
         .member-photo {
@@ -194,7 +207,12 @@
             border: 6px solid white;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .team-card:hover .member-photo {
+            transform: scale(1.04);
         }
 
         .team-card h3 {
@@ -232,7 +250,7 @@
             padding: 10px 20px;
             border-radius: 12px;
             background: var(--gold-soft);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .social-link:hover {
@@ -249,23 +267,23 @@
         }
 
         .intern-card {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 40px 30px;
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px -5px rgba(138, 109, 59, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px -5px rgba(138, 109, 59, 0.05);
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
         }
 
         .intern-card:hover {
             transform: translateY(-8px);
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.8);
             border-color: var(--gold);
-            box-shadow: 0 20px 40px -10px rgba(138, 109, 59, 0.15);
+            box-shadow: 0 25px 50px -10px rgba(138, 109, 59, 0.15);
         }
 
         .intern-photo-wrapper {
@@ -281,12 +299,12 @@
             object-fit: cover;
             border: 4px solid white;
             clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease;
         }
 
         .intern-card:hover .intern-photo {
-            transform: scale(1.05);
+            transform: scale(1.06) rotate(1deg);
         }
 
         .intern-photo-wrapper::after {
@@ -295,12 +313,12 @@
             inset: -6px;
             border: 1px solid var(--gold);
             clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-            opacity: 0.4;
-            transition: 0.4s;
+            opacity: 0.3;
+            transition: all 0.5s ease;
         }
 
         .intern-card:hover .intern-photo-wrapper::after {
-            opacity: 1;
+            opacity: 0.9;
             transform: rotate(45deg);
         }
 
@@ -329,73 +347,65 @@
 
         /* --- PREMIER HIGH-END CENTERED FOOTER --- */
         footer {
-            margin: 80px auto 40px;
-            padding: 30px 60px;
-            max-width: 700px;
+            margin: 100px auto 40px;
+            padding: 35px 70px;
+            max-width: 750px;
             width: 90%;
             text-align: center;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 40px rgba(138, 109, 59, 0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(138, 109, 59, 0.04);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            position: relative;
+            z-index: 5;
         }
 
         .footer-copyright {
             font-weight: 600;
             color: var(--text-main);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
         }
 
         .footer-divider {
-            width: 40px;
+            width: 50px;
             height: 2px;
-            background: var(--gold);
-            border-radius: 2px;
-            opacity: 0.6;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
         .footer-tagline {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
             font-weight: 700;
             color: var(--gold-dark);
             text-transform: uppercase;
         }
 
-        /* Keyframe Animations */
         @keyframes rotateHalo {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         @media (max-width: 768px) {
             h1 { font-size: 2.8rem; }
-            .team-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; gap: 35px; }
             .interns-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-            footer { padding: 25px 30px; margin-top: 60px; }
+            footer { padding: 30px 25px; margin-top: 60px; }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- 3D Background Pipeline Canvas Context -->
+    <canvas id="bg-canvas"></canvas>
 
     <header>
         <a href="index.html" class="logo">WARIN</a>
@@ -505,9 +515,9 @@
             <!-- Intern 7 -->
             <div class="intern-card">
                 <div class="intern-photo-wrapper">
-                    <img src="coreteam/bhavya.jpg" alt="Karanam Bhavya Sri" class="intern-photo">
+                    <img src="coreteam/bhavya.jpg" alt="Bhavya chandana tirumalaraju" class="intern-photo">
                 </div>
-                <h4>Bhavya chandana tirumalaraju </h4>
+                <h4>Bhavya chandana tirumalaraju</h4>
                 <span class="intern-role">Digital Content & Brand Strategist</span>
                 <p class="intern-dept">Warin</p>
             </div>
@@ -560,6 +570,98 @@
         <span class="footer-tagline">Tech For Good • Change For Real</span>
     </footer>
 
+    <!-- 3D ENGINE CORE SCRIPT -->
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const numParticles = 140;
+        const particles = [];
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetMouseX = 0;
+        let targetMouseY = 0;
+        const fov = 350; // Perspective projection distance depth metric
+
+        class Particle3D {
+            constructor() {
+                this.reset();
+                // Scatter them organically upon initializing space frame
+                this.z = Math.random() * fov;
+            }
+
+            reset() {
+                this.x = (Math.random() - 0.5) * width * 1.8;
+                this.y = (Math.random() - 0.5) * height * 1.8;
+                this.z = fov;
+                this.velocity = 0.4 + Math.random() * 0.5;
+                this.radius = 1 + Math.random() * 2;
+            }
+
+            update() {
+                this.z -= this.velocity;
+                if (this.z <= 0) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                // Perspective project structural algorithm matrices 
+                // Adjust space positions according to normalized cursor values 3D matrix shifts
+                const offsetX = (mouseX - (width / 2)) * 0.15;
+                const offsetY = (mouseY - (height / 2)) * 0.15;
+                
+                const scale = fov / (fov + this.z);
+                const projX = (this.x + offsetX) * scale + (width / 2);
+                const projY = (this.y + offsetY) * scale + (height / 2);
+
+                if (projX >= 0 && projX <= width && projY >= 0 && projY <= height) {
+                    // Compute absolute light opacity values scaling relative to foreground position
+                    const alpha = (1 - (this.z / fov)) * 0.65;
+                    ctx.beginPath();
+                    ctx.arc(projX, projY, this.radius * scale, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(197, 163, 103, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+        }
+
+        // Generate coordinates structure
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle3D());
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            targetMouseX = e.clientX;
+            targetMouseY = e.clientY;
+        });
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Interpolated cursor tracking structure matrices metrics
+            mouseX += (targetMouseX - mouseX) * 0.08;
+            mouseY += (targetMouseY - mouseY) * 0.08;
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
 </body>
 
 </html>

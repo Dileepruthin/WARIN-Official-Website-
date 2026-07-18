@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Warin | Applications Closed</title>
-=======
-    <title>Warin | Join the Core Team</title>
->>>>>>> f5ee955 (Update website pages and assets)
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #c5a367;
             --gold-dark: #8a6d3b;
+            --gold-soft: rgba(197, 163, 103, 0.1);
             --navy-dark: #070b14;
             --navy-light: #111a2e;
+            --text-muted: #a0aabf;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 40px 20px;
             min-height: 100vh;
-<<<<<<< HEAD
-=======
-            /* Rich Cinematic Gradient Background */
->>>>>>> f5ee955 (Update website pages and assets)
             background: radial-gradient(circle at 50% 50%, var(--navy-light) 0%, var(--navy-dark) 100%);
             color: #ffffff;
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -32,18 +30,11 @@
             justify-content: center;
             align-items: center;
             position: relative;
-<<<<<<< HEAD
+            padding: 40px 20px;
             overflow: hidden;
         }
 
-        /* Ambient Cinematic Lighting */
-=======
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
         /* Ambient Cinematic Lighting (Floating Orbs) */
->>>>>>> f5ee955 (Update website pages and assets)
         .ambient-light {
             position: fixed;
             border-radius: 50%;
@@ -62,7 +53,7 @@
         }
 
         .light-blue {
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(37, 99, 235, 0.08);
             width: 60vw;
             height: 60vw;
             bottom: -20%;
@@ -72,18 +63,17 @@
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
+            100% { transform: translate(50px, 50px) scale(1.05); }
         }
 
-<<<<<<< HEAD
-        /* Elegant Frosted Glass Container */
+        /* Frosted Glass Vault Display */
         .message-container {
-            background: rgba(15, 20, 30, 0.5);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: rgba(15, 20, 30, 0.55);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
             padding: 70px 50px;
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+            border-radius: 28px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
             width: 100%;
             max-width: 600px;
             border: 1px solid rgba(197, 163, 103, 0.25);
@@ -92,11 +82,12 @@
             text-align: center;
         }
 
-        .icon-lock {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 25px auto;
-            background: rgba(197, 163, 103, 0.1);
+        /* Editorial Identity Icon Framework */
+        .icon-vault {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 30px auto;
+            background: var(--gold-soft);
             border: 1px solid rgba(197, 163, 103, 0.3);
             border-radius: 50%;
             display: flex;
@@ -105,44 +96,29 @@
             color: var(--gold);
         }
 
-        .icon-lock svg {
-            width: 28px;
-            height: 28px;
+        .icon-vault svg {
+            width: 26px;
+            height: 26px;
             fill: currentColor;
-=======
-        /* Elegant Frosted Glass Form */
-        .form-container {
-            background: rgba(15, 20, 30, 0.5);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            padding: 50px 40px;
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
-            width: 100%;
-            max-width: 650px;
-            border: 1px solid rgba(197, 163, 103, 0.25);
-            position: relative;
-            z-index: 10;
->>>>>>> f5ee955 (Update website pages and assets)
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             margin-top: 0;
-            font-size: 3rem;
-            background: linear-gradient(135deg, #fff, var(--gold));
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #ffffff 30%, var(--gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-<<<<<<< HEAD
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .gold-divider {
-            height: 1px;
-            width: 60px;
+            height: 1.5px;
+            width: 50px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 0 auto 30px auto;
+            margin: 0 auto 35px auto;
         }
 
         p.primary-text {
@@ -154,7 +130,7 @@
         }
 
         p.secondary-text {
-            color: #a0aabf;
+            color: var(--text-muted);
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 40px;
@@ -163,189 +139,52 @@
         .signature {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 20px;
+            font-size: 19px;
             font-style: italic;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin-bottom: 35px;
         }
 
-        /* Subtle glowing button to redirect back to main site or LinkedIn */
-        .btn-return {
-            display: inline-block;
-            padding: 15px 35px;
-            background: rgba(197, 163, 103, 0.05);
+        /* Premium Stationery Call-To-Action Link */
+        .btn-connect {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: rgba(197, 163, 103, 0.04);
             color: var(--gold);
             text-decoration: none;
             border: 1px solid rgba(197, 163, 103, 0.4);
-            border-radius: 10px;
+            border-radius: 50px;
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 10px;
+            transition: all 0.3s ease;
         }
 
-        .btn-return:hover {
+        .btn-connect:hover {
             background: var(--gold);
             color: var(--navy-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(197, 163, 103, 0.2);
-=======
-            text-align: center;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        p.subtitle {
-            color: #a0aabf;
-            font-size: 15px;
-            text-align: center;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 11px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .label-hint {
-            text-transform: none;
-            letter-spacing: 0;
-            color: #a0aabf;
-            font-size: 10px;
-            font-weight: 400;
-            margin-left: 5px;
-        }
-
-        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], select, textarea {
-            width: 100%;
-            padding: 15px 18px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 15px;
-            box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background-color: rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 20px rgba(197, 163, 103, 0.15);
+            box-shadow: 0 15px 30px rgba(197, 163, 103, 0.2);
             transform: translateY(-2px);
         }
 
-        select option {
-            background-color: var(--navy-dark);
-            color: white;
-        }
-
-        /* File Upload Styling */
-        input[type="file"] {
-            width: 100%;
-            padding: 12px;
-            background-color: rgba(197, 163, 103, 0.03);
-            border: 1px dashed rgba(197, 163, 103, 0.5);
-            border-radius: 10px;
-            color: #a0aabf;
-            font-size: 14px;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-        
-        input[type="file"]::file-selector-button {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #000;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 6px;
-            margin-right: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        input[type="file"]::file-selector-button:hover {
-            box-shadow: 0 4px 12px rgba(197, 163, 103, 0.3);
-        }
-
-        .info-text {
-            font-size: 12px;
-            color: #778b99;
-            margin-top: 8px;
-            display: block;
-        }
-
-        button {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #000000;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(197, 163, 103, 0.35);
-        }
-
-        button:disabled {
-            background: rgba(255,255,255,0.1);
-            color: #555;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .status {
-            margin-top: 20px;
-            font-size: 15px;
-            text-align: center;
-            font-weight: 600;
->>>>>>> f5ee955 (Update website pages and assets)
+        @media (max-width: 768px) {
+            .message-container { padding: 50px 30px; }
+            h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Ambient Lighting -->
+<!-- Ambient Background Framework -->
 <div class="ambient-light light-gold"></div>
 <div class="ambient-light light-blue"></div>
 
-<<<<<<< HEAD
 <div class="message-container">
-    <!-- Minimalist Lock Icon -->
-    <div class="icon-lock">
+    <!-- Premium Lock Outline Shield -->
+    <div class="icon-vault">
         <svg viewBox="0 0 24 24">
             <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
         </svg>
@@ -355,161 +194,19 @@
     <div class="gold-divider"></div>
     
     <p class="primary-text">
-        Due to an overwhelming response, the application window for the Warin Core Team is now officially locked.
+        The application window for the Warin Core Team cohort is currently closed.
     </p>
     
     <p class="secondary-text">
-        We are currently evaluating the incredible portfolios submitted by builders stepping up to join our Tech for Good movement. We will be back soon with massive new opportunities to scale grassroots and industry tech. Thank you for your tremendous support.
+        We are currently processing the high volume of portfolios submitted by ecosystem builders. Stay tuned as we update our operations infrastructure. Connect with our corporate hub on LinkedIn to maintain contact for upcoming recruitment rollouts.
     </p>
 
     <div class="signature">The Warin Founding Team</div>
 
-    <!-- Optional: Link this back to your LinkedIn profile or main Warin website -->
-    <a href="https://linkedin.com/in/dileepruthin" class="btn-return">Follow Our Updates</a>
+    <a href="https://www.linkedin.com/company/warin-official/" target="_blank" class="btn-connect">
+        Follow on LinkedIn ↗
+    </a>
 </div>
 
 </body>
 </html>
-=======
-<div class="form-container">
-    <h2>Join Warin</h2>
-    <p class="subtitle">Driven by Purpose. Built for Impact. Designed for Growth.</p>
-    
-    <form id="warinForm">
-        <div class="form-row">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" id="name" required placeholder="Dileep Ruthin">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="email" required placeholder="dileep@example.com">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>WhatsApp Number</label>
-                <input type="tel" id="whatsapp" required placeholder="+91 00000 00000">
-            </div>
-            <div class="form-group">
-                <label>LinkedIn URL</label>
-                <input type="url" id="linkedin" required placeholder="https://linkedin.com/in/yourprofile">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>Superpower (Role)</label>
-                <select id="role" required>
-                    <option value="" disabled selected>Choose your role...</option>
-                    <option value="Operations & Events">Operations & Events 🛠️</option>
-                    <option value="PR & Outreach">PR & Outreach 🤝</option>
-                    <option value="Digital Content & Brand">Digital Content & Brand 🎨</option>
-                    <option value="Community Manager">Community Manager 🌍</option>
-                    <option value="Tech & AI Integrator">Tech & AI Integrator 💻</option>
-                    <option value="Generalist">I'm a generalist—put me anywhere!</option>
-                </select>
-            </div>
-            
-            <!-- UPDATED PORTFOLIO FIELD -->
-            <div class="form-group">
-                <label>Portfolio / Drive Link <span class="label-hint">(Highly Recommended)</span></label>
-                <input type="url" id="driveLink" placeholder="https://your-work-link.com">
-                <span class="info-text">Optional, but showing past work gives you a big advantage.</span>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>Resume (PDF Only)</label>
-                <input type="file" id="resume" accept="application/pdf" required>
-            </div>
-            <div class="form-group">
-                <label>Professional Photo</label>
-                <input type="file" id="photo" accept="image/*" required>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Why Warin? (Be real.)</label>
-            <textarea id="reason" rows="3" required placeholder="I want to build real tech for grassroots impact..."></textarea>
-        </div>
-        
-        <button type="submit" id="submitBtn">Launch Application 🚀</button>
-        <div class="status" id="statusMessage"></div>
-    </form>
-</div>
-
-<script>
-    // ⚠️ PASTE YOUR WORKING URL HERE! ⚠️
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzzIiA51chtaJnokqW6tdCTuwIpJ-8CvYhbeWhMXIumumfZOgGcCuJEwKGeU8oy9Rsb8Q/exec';
-    
-    const form = document.getElementById('warinForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMessage = document.getElementById('statusMessage');
-
-    const getBase64 = (file) => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = error => reject(error);
-    });
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        submitBtn.innerHTML = 'Uploading & Submitting... ⏳';
-        submitBtn.disabled = true;
-        statusMessage.innerHTML = '';
-
-        try {
-            const payload = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                whatsapp: document.getElementById('whatsapp').value,
-                linkedin: document.getElementById('linkedin').value,
-                role: document.getElementById('role').value,
-                driveLink: document.getElementById('driveLink').value,
-                reason: document.getElementById('reason').value
-            };
-
-            const resumeFile = document.getElementById('resume').files[0];
-            if (resumeFile) {
-                payload.resumeData = await getBase64(resumeFile);
-                payload.resumeMime = resumeFile.type;
-            }
-
-            const photoFile = document.getElementById('photo').files[0];
-            if (photoFile) {
-                payload.photoData = await getBase64(photoFile);
-                payload.photoMime = photoFile.type;
-            }
-
-            const response = await fetch(scriptURL, { 
-                method: 'POST', 
-                body: JSON.stringify(payload) 
-            });
-
-            const result = await response.json();
-            
-            if (result.result === "success") {
-                statusMessage.innerHTML = '✅ Application Received! Check your email inbox.';
-                statusMessage.style.color = '#c5a367';
-                form.reset();
-            } else {
-                throw new Error(result.error);
-            }
-        } catch (error) {
-            statusMessage.innerHTML = '❌ System Error: ' + error.message;
-            statusMessage.style.color = '#ff4d4d';
-            console.error(error);
-        } finally {
-            submitBtn.innerHTML = 'Launch Application 🚀';
-            submitBtn.disabled = false;
-        }
-    });
-</script>
-
-</body>
-</html>
->>>>>>> f5ee955 (Update website pages and assets)
