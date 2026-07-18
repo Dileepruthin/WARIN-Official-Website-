@@ -31,7 +31,6 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg);
-            /* Complex layered background for a "World-Class" feel */
             background-image:
                 radial-gradient(circle at 10% 20%, var(--gold-soft), transparent 40%),
                 radial-gradient(circle at 90% 80%, var(--gold-soft), transparent 40%),
@@ -42,6 +41,9 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -81,15 +83,21 @@
         }
 
         .team-container {
-            padding: 40px 8% 120px;
-            max-width: 1300px;
+            padding: 40px 8% 60px;
+            max-width: 1400px;
             margin: auto;
+            flex: 1;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             animation: fadeIn 1s ease-out;
+        }
+
+        .section-header.interns-header {
+            margin-top: 100px;
+            margin-bottom: 50px;
         }
 
         .section-tag {
@@ -110,14 +118,23 @@
             line-height: 1.1;
         }
 
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+        /* --- LEADERSHIP GRID --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 50px;
             justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        /* --- THE CARD: UX ENHANCED --- */
         .team-card {
             background: var(--glass);
             backdrop-filter: blur(25px);
@@ -153,7 +170,6 @@
             opacity: 1;
         }
 
-        /* --- MEMBER PHOTO: THE "HALO" EFFECT --- */
         .member-photo-context {
             position: relative;
             width: 180px;
@@ -181,16 +197,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes rotateHalo {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
         .team-card h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -215,7 +221,6 @@
             line-height: 1.7;
         }
 
-        /* --- LINKEDIN BUTTON: PREMIUM STYLE --- */
         .social-link {
             display: inline-flex;
             align-items: center;
@@ -235,45 +240,157 @@
             color: white;
         }
 
-        footer {
-            padding: 80px 8%;
-            text-align: center;
-            border-top: 1px solid var(--gold-soft);
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        /* --- UNIQUE INTERN DESIGN ARCHITECTURE --- */
+        .interns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+        .intern-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px -5px rgba(138, 109, 59, 0.08);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .intern-card:hover {
+            transform: translateY(-8px);
+            background: var(--glass);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px -10px rgba(138, 109, 59, 0.15);
+        }
+
+        .intern-photo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+        }
+
+        .intern-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid white;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease;
+        }
+
+        .intern-card:hover .intern-photo {
+            transform: scale(1.05);
+        }
+
+        .intern-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 1px solid var(--gold);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            opacity: 0.4;
+            transition: 0.4s;
+        }
+
+        .intern-card:hover .intern-photo-wrapper::after {
+            opacity: 1;
+            transform: rotate(45deg);
+        }
+
+        .intern-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .intern-role {
+            font-size: 0.75rem;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .intern-dept {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* --- PREMIER HIGH-END CENTERED FOOTER --- */
+        footer {
+            margin: 80px auto 40px;
+            padding: 30px 60px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(138, 109, 59, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .footer-copyright {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        .footer-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+        }
+
+        /* Keyframe Animations */
+        @keyframes rotateHalo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 2.8rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            .interns-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            footer { padding: 25px 30px; margin-top: 60px; }
         }
     </style>
 </head>
@@ -286,6 +403,7 @@
     </header>
 
     <div class="team-container">
+        <!-- LEADERSHIP SECTION -->
         <div class="section-header">
             <span class="section-tag">Visionary Leadership</span>
             <h1>The Minds Behind Warin</h1>
@@ -316,11 +434,130 @@
                 <a href="#" class="social-link">View Portfolio ↗</a>
             </div>
         </div>
+
+        <!-- INTERNS SECTION -->
+        <div class="section-header interns-header">
+            <span class="section-tag">The Driving Force</span>
+            <h2>Interns Core Team</h2>
+        </div>
+
+        <div class="interns-grid">
+            <!-- Intern 1 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/srinivas.jpg" alt="Manyam Lakshmi Srinivas" class="intern-photo">
+                </div>
+                <h4>Manyam Lakshmi Srinivas</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 2 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/suraim.jpg" alt="Shaik Md Suraim" class="intern-photo">
+                </div>
+                <h4>Shaik Md Suraim</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 3 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/hussain.jpg" alt="A.Waseem Hussain" class="intern-photo">
+                </div>
+                <h4>A.Waseem Hussain</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 4 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/vamshi.jpg" alt="Pisini vamshi" class="intern-photo">
+                </div>
+                <h4>Pisini vamshi</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 5 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/shahida.jpg" alt="Shaik Shahida" class="intern-photo">
+                </div>
+                <h4>Shaik Shahida</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 6 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/vedasree.jpg" alt="Neeli Reddy Veda Sree" class="intern-photo">
+                </div>
+                <h4>Neeli Reddy Veda Sree</h4>
+                <span class="intern-role">Digital Content & Brand Strategist</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 7 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/bhavya.jpg" alt="Karanam Bhavya Sri" class="intern-photo">
+                </div>
+                <h4>Karanam Bhavya Sri</h4>
+                <span class="intern-role">Digital Content & Brand Strategist</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 8 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/siva.jpg" alt="TAVVA MOHAN SIVA" class="intern-photo">
+                </div>
+                <h4>TAVVA MOHAN SIVA</h4>
+                <span class="intern-role">Digital Content & Brand Strategist</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 9 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/sathvik.jpg" alt="Dasari Sai Sathvik" class="intern-photo">
+                </div>
+                <h4>Dasari Sai Sathvik</h4>
+                <span class="intern-role">Digital Content & Brand Strategist</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 10 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/sana.jpg" alt="B. S. Sana Afia" class="intern-photo">
+                </div>
+                <h4>B. S. Sana Afia</h4>
+                <span class="intern-role">Community Manager</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+
+            <!-- Intern 11 -->
+            <div class="intern-card">
+                <div class="intern-photo-wrapper">
+                    <img src="coreteam/Akshitha.jpg" alt="Pasam Akshitha" class="intern-photo">
+                </div>
+                <h4>Pasam Akshitha</h4>
+                <span class="intern-role">Tech and AI Integrator</span>
+                <p class="intern-dept">Warin</p>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>© 2026 Warin Foundation. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.75rem; letter-spacing: 1px;">TECH FOR GOOD • CHANGE FOR REAL</p>
+        <span class="footer-copyright">© 2026 Warin. All Rights Reserved.</span>
+        <div class="footer-divider"></div>
+        <span class="footer-tagline">Tech For Good • Change For Real</span>
     </footer>
 
 </body>
