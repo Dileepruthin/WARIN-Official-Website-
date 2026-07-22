@@ -2096,64 +2096,71 @@
      PROGRAMS
 ============================= -->
   <section id="programs">
-    <div class="section-inner">
-      <div class="section-header center" data-aos="fade-up">
-        <div class="section-tag">Our Programs</div>
-        <h2 class="section-title">Structured Pathways for Every Stage</h2>
-        <p class="section-subtitle">Three comprehensive programs designed to meet students exactly where they are — from
-          school to industry-ready professionals.</p>
-      </div>
-
-      <div class="programs-grid">
-        <!-- Card 1 -->
-        <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="prog-icon prog-icon-1">🏫</div>
-          <h3>School Tech &amp; Entrepreneurship Bridge</h3>
-          <p>Introducing school students (Grades 6–12) to technology, design thinking, and entrepreneurship through
-            hands-on projects and workshops led by industry experts.</p>
-          <div class="prog-tags">
-            <span class="prog-tag blue">Coding Bootcamps</span>
-            <span class="prog-tag blue">Design Thinking</span>
-            <span class="prog-tag blue">Hackathons</span>
-            <span class="prog-tag blue">Guest Lectures</span>
-          </div>
-          <a href="school.html" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Learn more→</a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="prog-icon prog-icon-2">🎓</div>
-          <h3>College Industry Pathway Program</h3>
-          <p>Connecting college students with industry projects, internships, and mentors — building a bridge from
-            classroom learning to real-world career readiness.</p>
-          <div class="prog-tags">
-            <span class="prog-tag purple">Live Projects</span>
-            <span class="prog-tag purple">Internships</span>
-            <span class="prog-tag purple">1:1 Mentorship</span>
-            <span class="prog-tag purple">Portfolio Building</span>
-          </div><a href="college.html" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Learn more→</a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="prog-icon prog-icon-3">🤝</div>
-          <h3>Industry Collaboration Network</h3>
-          <p>A curated network enabling companies to give back, recruit early talent, and build their employer brand —
-            while directly contributing to India's skilled workforce.</p>
-          <div class="prog-tags">
-            <span class="prog-tag cyan">Talent Pipeline</span>
-            <span class="prog-tag cyan">CSR Programs</span>
-            <span class="prog-tag cyan">Early Hiring</span>
-            <span class="prog-tag cyan">Brand Building</span>
-          </div>
-          <a href="network.html" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Learn more→</a>
-        </div>
-      </div>
+  <div class="section-inner">
+    <div class="section-header center" data-aos="fade-up">
+      <div class="section-tag">Our Programs</div>
+      <h2 class="section-title">Structured Pathways for Every Stage</h2>
+      <p class="section-subtitle">Three comprehensive programs designed to meet students exactly where they are — from
+        school to industry-ready professionals.</p>
     </div>
-  </section>
+
+    <!-- Added align-items: stretch to ensure the grid items (cards) are equal height -->
+    <div class="programs-grid" style="display: grid; align-items: stretch;">
+      
+      <!-- Card 1 -->
+      <!-- Added display: flex; flex-direction: column; to the card -->
+      <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="0" style="display: flex; flex-direction: column; height: 100%;">
+        <div class="prog-icon prog-icon-1">🏫</div>
+        <h3>School Tech &amp; Entrepreneurship Bridge</h3>
+        <!-- Added flex-grow to the paragraph so it takes up empty space -->
+        <p style="flex-grow: 1;">Introducing school students (Grades 6–12) to technology, design thinking, and entrepreneurship through
+          hands-on projects and workshops led by industry experts.</p>
+        <div class="prog-tags" style="margin-bottom: 24px;">
+          <span class="prog-tag blue">Coding Bootcamps</span>
+          <span class="prog-tag blue">Design Thinking</span>
+          <span class="prog-tag blue">Hackathons</span>
+          <span class="prog-tag blue">Guest Lectures</span>
+        </div>
+        <!-- Added margin-top: auto to push the button to the absolute bottom -->
+        <a href="school.html" class="btn-primary"
+          style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Learn more→</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="100" style="display: flex; flex-direction: column; height: 100%;">
+        <div class="prog-icon prog-icon-2">🎓</div>
+        <h3>College Industry Pathway Program</h3>
+        <p style="flex-grow: 1;">Connecting college students with industry projects, internships, and mentors — building a bridge from
+          classroom learning to real-world career readiness.</p>
+        <div class="prog-tags" style="margin-bottom: 24px;">
+          <span class="prog-tag purple">Live Projects</span>
+          <span class="prog-tag purple">Internships</span>
+          <span class="prog-tag purple">1:1 Mentorship</span>
+          <span class="prog-tag purple">Portfolio Building</span>
+        </div>
+        <a href="college.html" class="btn-primary"
+          style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Learn more→</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card program-card" data-aos="fade-up" data-aos-delay="200" style="display: flex; flex-direction: column; height: 100%;">
+        <div class="prog-icon prog-icon-3">🤝</div>
+        <h3>Industry Collaboration Network</h3>
+        <p style="flex-grow: 1;">A curated network enabling companies to give back, recruit early talent, and build their employer brand —
+          while directly contributing to India's skilled workforce.</p>
+        <div class="prog-tags" style="margin-bottom: 24px;">
+          <span class="prog-tag cyan">Talent Pipeline</span>
+          <span class="prog-tag cyan">CSR Programs</span>
+          <span class="prog-tag cyan">Early Hiring</span>
+          <span class="prog-tag cyan">Brand Building</span>
+        </div>
+        <a href="network.html" class="btn-primary"
+          style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Learn more→</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
 
   <!-- ============================
      WHY WARIN
@@ -2236,78 +2243,156 @@
   <!-- ============================
      GALLERY
 ============================= -->
-  <style>
-    /* 3x3 UNIFORM GRID SYSTEM */
+ <style>
+    /* ===========================
+       PREMIUM BENTO GALLERY 
+    =========================== */
     .gallery-grid {
       display: grid;
-      /* This creates exactly 3 columns as seen in your reference */
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 40px 0;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 280px; /* Base height for standard squares */
+      gap: 24px;
+      padding: 20px 0;
       max-width: 1200px;
       margin: auto;
     }
 
     .gallery-item {
       position: relative;
-      border-radius: 20px;
-      /* Matching the rounded corners in your image */
+      border-radius: 24px; /* Slightly softer premium corners */
       overflow: hidden;
       cursor: pointer;
       background: #fff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      /* Fixed aspect ratio to keep them as clean boxes */
-      aspect-ratio: 4 / 3;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      /* Initial state for hover effect */
+      transform: translateZ(0);
     }
+
+    /* BENTO GRID SIZING PROPORTIONS */
+    /* 1. Large Hero Feature */
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    /* 3. Tall Portrait */
+    .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 2; }
+    /* 5. Wide Landscape */
+    .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+    /* 8 & 9. Bottom Wides */
+    .gallery-item:nth-child(8) { grid-column: span 2; grid-row: span 1; }
+    .gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 1; }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* Ensures photos fill the box perfectly */
       display: block;
-      transition: transform 0.6s ease;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
     }
 
-    /* PRENIUM OVERLAY */
-    .gallery-overlay {
+    /* PREMIUM GRADIENT SHADOW (Always slightly visible at bottom for depth) */
+    .gallery-item::before {
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
-      display: flex;
-      align-items: flex-end;
-      padding: 10px;
+      background: linear-gradient(to top, rgba(7, 7, 26, 0.8) 0%, rgba(7, 7, 26, 0) 50%);
+      opacity: 0.6;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    /* GLASSMORPHISM BADGE */
+    .gallery-badge {
+      position: absolute;
+      bottom: -10px; /* Start slightly below for slide-up effect */
+      left: 24px;
+      z-index: 2;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      
+      /* Frost effect */
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: 50px;
+      
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .gallery-overlay span {
-      color: white;
+    .gallery-badge span {
+      color: #ffffff;
       font-weight: 700;
-      font-size: 1rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
 
-    /* HOVER EFFECTS */
+    .gallery-badge i {
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    /* INNER GLOW BORDER ON HOVER */
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid transparent;
+      border-radius: 24px;
+      transition: border-color 0.5s ease;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* HOVER STATES */
     .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(138, 109, 59, 0.2);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 48px rgba(138, 109, 59, 0.15);
     }
 
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
-    .gallery-item:hover .gallery-overlay {
+    .gallery-item:hover::before {
+      opacity: 0.85; /* Darken bottom slightly to make text pop */
+    }
+
+    .gallery-item:hover::after {
+      border-color: rgba(197, 163, 103, 0.4); /* Subtle gold rim */
+    }
+
+    .gallery-item:hover .gallery-badge {
       opacity: 1;
+      bottom: 24px; /* Slides up smoothly */
     }
 
-    /* Responsive for Mobile: Switches to 1 column */
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+      }
+      /* Reset spans for 2 columns */
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(5),
+      .gallery-item:nth-child(8),
+      .gallery-item:nth-child(9) { grid-column: span 2; }
+      .gallery-item:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    }
+
     @media (max-width: 768px) {
       .gallery-grid {
         grid-template-columns: 1fr;
-        padding: 20px;
+        grid-auto-rows: 280px;
+        gap: 20px;
+      }
+      /* Reset all to single column */
+      .gallery-item:nth-child(n) {
+        grid-column: span 1;
+        grid-row: span 1;
       }
     }
   </style>
@@ -2322,55 +2407,91 @@
 
       <div class="gallery-grid" data-aos="fade-up">
 
+        <!-- 1. Large Feature -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment8.jpg" alt="Founder Session">
-          <div class="gallery-overlay"><span></span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-star"></i>
+            <span>Executive Session</span>
+          </div>
         </div>
 
+        <!-- 2. Standard -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="event1/event3.jpg" alt="School Hackathon">
-          <div class="gallery-overlay"><span>School Hackathon</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-code"></i>
+            <span>School Hackathon</span>
+          </div>
         </div>
 
+        <!-- 3. Tall Portrait -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment11.jpg" alt="Graduation Day">
-          <div class="gallery-overlay"><span></span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Graduation Day</span>
+          </div>
         </div>
 
+        <!-- 4. Standard -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment1.jpg" alt="Industry Speaker">
-          <div class="gallery-overlay"><span>Industry Speaker</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-microphone"></i>
+            <span>Industry Speaker</span>
+          </div>
         </div>
 
+        <!-- 5. Wide Landscape -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment7.jpg" alt="Award Ceremony">
-          <div class="gallery-overlay"><span>Award Ceremony</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-trophy"></i>
+            <span>Award Ceremony</span>
+          </div>
         </div>
 
+        <!-- 6. Standard -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment5.jpg" alt="Startup Pitch">
-          <div class="gallery-overlay"><span>Startup Pitch</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Startup Pitch</span>
+          </div>
         </div>
 
+        <!-- 7. Standard -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment3.jpg" alt="Coding Lab">
-          <div class="gallery-overlay"><span>Coding Lab</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-laptop-code"></i>
+            <span>Coding Lab</span>
+          </div>
         </div>
 
+        <!-- 8. Wide Bottom -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment10.jpg" alt="Mentorship">
-          <div class="gallery-overlay"><span>Mentorship</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-user-friends"></i>
+            <span>1:1 Mentorship</span>
+          </div>
         </div>
 
+        <!-- 9. Wide Bottom -->
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="moments/moment9.jpg" alt="Global Network">
-          <div class="gallery-overlay"><span>Global Network</span></div>
+          <div class="gallery-badge">
+            <i class="fas fa-globe"></i>
+            <span>Global Network</span>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
-  <!-- ============================
+ <!-- ============================
      TESTIMONIALS
 ============================= -->
   <section id="testimonials">
@@ -2383,56 +2504,64 @@
       </div>
 
       <div class="testimonials-track" data-aos="fade-up" data-aos-delay="100">
-        <div class="testimonials-slider" id="slider">
+        <!-- Added align-items: stretch so all slider cards perfectly match the height of the tallest card -->
+        <div class="testimonials-slider" id="slider" style="align-items: stretch;">
 
-          <div class="glass-card testimonial-card">
+          <!-- Card 1 -->
+          <!-- Added flexbox to column format and auto height to fill the stretched container -->
+          <div class="glass-card testimonial-card" style="display: flex; flex-direction: column; height: auto;">
             <div class="test-quote">"</div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">Warin's Industry Pathway Program completely changed my perspective. I went from not
+            <!-- flex-grow: 1 pushes the author info down -->
+            <p class="test-text" style="flex-grow: 1;">Warin's Industry Pathway Program completely changed my perspective. I went from not
               knowing what to do after graduation to landing a product role at a funded startup. The mentorship was
               world-class.</p>
-            <div class="test-author">
+            <!-- margin-top: auto anchors the author block to the very bottom -->
+            <div class="test-author" style="margin-top: auto;">
               <div class="test-avatar" style="background:linear-gradient(135deg,#4f8ef7,#8b5cf6); color:#fff;">OL</div>
               <div class="test-info">
-                <h4>pawan</h4><span>Student,Tirupati</span>
+                <h4>Pawan</h4><span>Student, Tirupati</span>
               </div>
             </div>
           </div>
 
-          <div class="glass-card testimonial-card">
+          <!-- Card 2 -->
+          <div class="glass-card testimonial-card" style="display: flex; flex-direction: column; height: auto;">
             <div class="test-quote">"</div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">As a school principal, I've seen many programs come and go. Warin is different —
+            <p class="test-text" style="flex-grow: 1;">As a school principal, I've seen many programs come and go. Warin is different —
               students actually build real things, think differently, and develop genuine confidence. The hackathon was
               a turning point for our school.</p>
-            <div class="test-author">
+            <div class="test-author" style="margin-top: auto;">
               <div class="test-avatar" style="background:linear-gradient(135deg,#06b6d4,#8b5cf6); color:#fff;">SP</div>
               <div class="test-info">
-                <h4>Siva prasad</h4><span>Proffesor,MBU</span>
+                <h4>Siva Prasad</h4><span>Professor, MBU</span>
               </div>
             </div>
           </div>
 
-          <div class="glass-card testimonial-card">
+          <!-- Card 3 -->
+          <div class="glass-card testimonial-card" style="display: flex; flex-direction: column; height: auto;">
             <div class="test-quote">"</div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">Participating as a mentor on Warin is deeply rewarding. The students are hungry to
+            <p class="test-text" style="flex-grow: 1;">Participating as a mentor on Warin is deeply rewarding. The students are hungry to
               learn, and the platform makes mentorship seamless. We've hired 4 interns from Warin's talent pool this
               year alone.</p>
-            <div class="test-author">
+            <div class="test-author" style="margin-top: auto;">
               <div class="test-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444); color:#fff;">AM</div>
               <div class="test-info">
-                <h4>Maharishee</h4><span>Founder,Hacknotify-INDIA</span>
+                <h4>Maharishee</h4><span>Founder, Hacknotify-INDIA</span>
               </div>
             </div>
           </div>
 
-          <div class="glass-card testimonial-card">
+          <!-- Card 4 -->
+          <div class="glass-card testimonial-card" style="display: flex; flex-direction: column; height: auto;">
             <div class="test-quote">"</div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">I was from a small town in Rajasthan with limited resources. Warin gave me access to
+            <p class="test-text" style="flex-grow: 1;">I was from a small town in Rajasthan with limited resources. Warin gave me access to
               mentors from IIT and top companies. Today I'm a full-stack developer. I owe this platform so much.</p>
-            <div class="test-author">
+            <div class="test-author" style="margin-top: auto;">
               <div class="test-avatar" style="background:linear-gradient(135deg,#10b981,#4f8ef7); color:#fff;">RL</div>
               <div class="test-info">
                 <h4>Rahul Lodha</h4><span>Full Stack Developer, Pune</span>
@@ -2440,12 +2569,13 @@
             </div>
           </div>
 
-          <div class="glass-card testimonial-card">
+          <!-- Card 5 -->
+          <div class="glass-card testimonial-card" style="display: flex; flex-direction: column; height: auto;">
             <div class="test-quote">"</div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">Our company partnered with Warin for CSR initiatives and talent discovery. The quality
+            <p class="test-text" style="flex-grow: 1;">Our company partnered with Warin for CSR initiatives and talent discovery. The quality
               of students we've engaged is exceptional. This is exactly the kind of ecosystem India needs right now.</p>
-            <div class="test-author">
+            <div class="test-author" style="margin-top: auto;">
               <div class="test-avatar" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4); color:#fff;">VN</div>
               <div class="test-info">
                 <h4>Vikram Nair</h4><span>CTO, InnovateTech India</span>
@@ -2464,7 +2594,7 @@
     </div>
   </section>
 
-  <!-- ============================
+ <!-- ============================
      COLLABORATE
 ============================= -->
   <section id="collaborate">
@@ -2476,29 +2606,36 @@
           partnership waiting for you.</p>
       </div>
 
-      <div class="collab-grid">
-        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="0">
+      <!-- Added align-items: stretch for equal height grid tracks -->
+      <div class="collab-grid" style="display: grid; align-items: stretch;">
+        
+        <!-- Card 1 -->
+        <!-- Added flexbox properties to stretch the card to full height -->
+        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="0" style="display: flex; flex-direction: column; height: 100%;">
           <div class="collab-icon">🏫</div>
           <h3>For Schools</h3>
           <p>Bring cutting-edge technology education and real-world experiences to your students through our structured
             school programs.</p>
-          <ul class="collab-list">
+          <!-- Added flex-grow: 1 so the list pushes the button down -->
+          <ul class="collab-list" style="flex-grow: 1; margin-bottom: 28px;">
             <li>Curriculum-aligned tech workshops</li>
             <li>Student hackathons & competitions</li>
             <li>Teacher training & upskilling</li>
             <li>Industry guest lecture series</li>
             <li>Annual tech fest collaboration</li>
           </ul>
+          <!-- Added margin-top: auto to anchor button to the bottom -->
           <a href="#contact" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Partner With Us →</a>
+            style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Partner With Us →</a>
         </div>
 
-        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="100">
+        <!-- Card 2 -->
+        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="100" style="display: flex; flex-direction: column; height: 100%;">
           <div class="collab-icon">🎓</div>
           <h3>For Colleges</h3>
           <p>Transform your institution's placement outcomes by integrating real industry pathways into your curriculum.
           </p>
-          <ul class="collab-list">
+          <ul class="collab-list" style="flex-grow: 1; margin-bottom: 28px;">
             <li>Industry project integrations</li>
             <li>Internship pipeline programs</li>
             <li>Campus-to-corporate transition</li>
@@ -2506,15 +2643,16 @@
             <li>Placement support & branding</li>
           </ul>
           <a href="#contact" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Partner With Us →</a>
+            style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Partner With Us →</a>
         </div>
 
-        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="200">
+        <!-- Card 3 -->
+        <div class="glass-card collab-card" data-aos="fade-up" data-aos-delay="200" style="display: flex; flex-direction: column; height: 100%;">
           <div class="collab-icon">💼</div>
           <h3>For Industry Professionals</h3>
           <p>Give back to the ecosystem, shape future talent, and build your personal brand as a mentor and thought
             leader.</p>
-          <ul class="collab-list">
+          <ul class="collab-list" style="flex-grow: 1; margin-bottom: 28px;">
             <li>1:1 mentorship sessions</li>
             <li>Workshop facilitation</li>
             <li>Early talent recruitment</li>
@@ -2522,13 +2660,12 @@
             <li>Co-create industry projects</li>
           </ul>
           <a href="#contact" class="btn-primary"
-            style="width:100%; justify-content:center; background:var(--grad2);">Join as Mentor→</a>
-
+            style="width:100%; justify-content:center; background:var(--grad2); margin-top: auto;">Join as Mentor→</a>
         </div>
+        
       </div>
     </div>
   </section>
-
   <!-- CTA Banner -->
   <div style="padding:0 0 100px; position:relative; z-index:1;" data-aos="zoom-in">
     <div class="cta-banner">
