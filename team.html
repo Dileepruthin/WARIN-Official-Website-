@@ -389,15 +389,33 @@
         }
 
         @keyframes rotateHalo {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .team-grid { grid-template-columns: 1fr; gap: 35px; }
-            .interns-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-            footer { padding: 30px 25px; margin-top: 60px; }
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .interns-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            footer {
+                padding: 30px 25px;
+                margin-top: 60px;
+            }
         }
     </style>
 </head>
@@ -551,117 +569,106 @@
                 <span class="intern-role">Community Manager</span>
                 <p class="intern-dept">Warin</p>
             </div>
-
-            <!-- Intern 11 -->
-            <div class="intern-card">
-                <div class="intern-photo-wrapper">
-                    <img src="coreteam/Akshitha.jpg" alt="Pasam Akshitha" class="intern-photo">
-                </div>
-                <h4>Pasam Akshitha</h4>
-                <span class="intern-role">Tech and AI Integrator</span>
-                <p class="intern-dept">Warin</p>
-            </div>
         </div>
-    </div>
 
-    <footer>
-        <span class="footer-copyright">© 2026 Warin. All Rights Reserved.</span>
-        <div class="footer-divider"></div>
-        <span class="footer-tagline">Tech For Good • Change For Real</span>
-    </footer>
+        <footer>
+            <span class="footer-copyright">© 2024 Warin. All Rights Reserved.</span>
+            <div class="footer-divider"></div>
+            <span class="footer-tagline">Tech For Good • Change For Real</span>
+        </footer>
 
-    <!-- 3D ENGINE CORE SCRIPT -->
-    <script>
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
+        <!-- 3D ENGINE CORE SCRIPT -->
+        <script>
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
 
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
 
-        const numParticles = 140;
-        const particles = [];
-        
-        let mouseX = 0;
-        let mouseY = 0;
-        let targetMouseX = 0;
-        let targetMouseY = 0;
-        const fov = 350; // Perspective projection distance depth metric
+            const numParticles = 140;
+            const particles = [];
 
-        class Particle3D {
-            constructor() {
-                this.reset();
-                // Scatter them organically upon initializing space frame
-                this.z = Math.random() * fov;
-            }
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetMouseX = 0;
+            let targetMouseY = 0;
+            const fov = 350; // Perspective projection distance depth metric
 
-            reset() {
-                this.x = (Math.random() - 0.5) * width * 1.8;
-                this.y = (Math.random() - 0.5) * height * 1.8;
-                this.z = fov;
-                this.velocity = 0.4 + Math.random() * 0.5;
-                this.radius = 1 + Math.random() * 2;
-            }
-
-            update() {
-                this.z -= this.velocity;
-                if (this.z <= 0) {
+            class Particle3D {
+                constructor() {
                     this.reset();
+                    // Scatter them organically upon initializing space frame
+                    this.z = Math.random() * fov;
+                }
+
+                reset() {
+                    this.x = (Math.random() - 0.5) * width * 1.8;
+                    this.y = (Math.random() - 0.5) * height * 1.8;
+                    this.z = fov;
+                    this.velocity = 0.4 + Math.random() * 0.5;
+                    this.radius = 1 + Math.random() * 2;
+                }
+
+                update() {
+                    this.z -= this.velocity;
+                    if (this.z <= 0) {
+                        this.reset();
+                    }
+                }
+
+                draw() {
+                    // Perspective project structural algorithm matrices 
+                    // Adjust space positions according to normalized cursor values 3D matrix shifts
+                    const offsetX = (mouseX - (width / 2)) * 0.15;
+                    const offsetY = (mouseY - (height / 2)) * 0.15;
+
+                    const scale = fov / (fov + this.z);
+                    const projX = (this.x + offsetX) * scale + (width / 2);
+                    const projY = (this.y + offsetY) * scale + (height / 2);
+
+                    if (projX >= 0 && projX <= width && projY >= 0 && projY <= height) {
+                        // Compute absolute light opacity values scaling relative to foreground position
+                        const alpha = (1 - (this.z / fov)) * 0.65;
+                        ctx.beginPath();
+                        ctx.arc(projX, projY, this.radius * scale, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(197, 163, 103, ${alpha})`;
+                        ctx.fill();
+                    }
                 }
             }
 
-            draw() {
-                // Perspective project structural algorithm matrices 
-                // Adjust space positions according to normalized cursor values 3D matrix shifts
-                const offsetX = (mouseX - (width / 2)) * 0.15;
-                const offsetY = (mouseY - (height / 2)) * 0.15;
-                
-                const scale = fov / (fov + this.z);
-                const projX = (this.x + offsetX) * scale + (width / 2);
-                const projY = (this.y + offsetY) * scale + (height / 2);
+            // Generate coordinates structure
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle3D());
+            }
 
-                if (projX >= 0 && projX <= width && projY >= 0 && projY <= height) {
-                    // Compute absolute light opacity values scaling relative to foreground position
-                    const alpha = (1 - (this.z / fov)) * 0.65;
-                    ctx.beginPath();
-                    ctx.arc(projX, projY, this.radius * scale, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(197, 163, 103, ${alpha})`;
-                    ctx.fill();
+            window.addEventListener('mousemove', (e) => {
+                targetMouseX = e.clientX;
+                targetMouseY = e.clientY;
+            });
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Interpolated cursor tracking structure matrices metrics
+                mouseX += (targetMouseX - mouseX) * 0.08;
+                mouseY += (targetMouseY - mouseY) * 0.08;
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
                 }
-            }
-        }
 
-        // Generate coordinates structure
-        for (let i = 0; i < numParticles; i++) {
-            particles.push(new Particle3D());
-        }
-
-        window.addEventListener('mousemove', (e) => {
-            targetMouseX = e.clientX;
-            targetMouseY = e.clientY;
-        });
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-
-            // Interpolated cursor tracking structure matrices metrics
-            mouseX += (targetMouseX - mouseX) * 0.08;
-            mouseY += (targetMouseY - mouseY) * 0.08;
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+                requestAnimationFrame(animate);
             }
 
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
+            animate();
+        </script>
 </body>
 
 </html>
